@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字符串拼接</title>
+</head>
+<body>
+    <script>
+        /**************************** 记时 *********************************/
+        var timeBegin, timeEnd;
+        var frequency = 100000; //循环50000000次
+        
+
+        /*******************************************************************/
+        // 1.使用加号运算符
+        // 开始计时
+        timeBegin = Date.now()
+        for(let i = 0;i<frequency;i++){
+            var s1 = "abc" , s2 = "def";
+        }
+        // 结束计时
+        timeEnd = Date.now()
+        console.log('使用加号运算符耗时：'+(timeEnd-timeBegin)+'ms')
+        
+
+        /*******************************************************************/
+        // 2.使用concat()方法
+        // 开始计时
+        timeBegin = Date.now()
+        for(let i = 0;i<frequency;i++){
+            var s1 = "abc";
+            // var s2 = s1.concat("d" , "e" , "f");  //调用concat()连接字符串
+            var s2 = s1.concat("def");  //调用concat()连接字符串
+        }
+        // 结束计时
+        timeEnd = Date.now()
+        console.log('使用concat()方法耗时：'+(timeEnd-timeBegin)+'ms')
+
+
+        /*******************************************************************/
+        // 3.使用join()方法
+        // 开始计时
+        timeBegin = Date.now()
+        for(let i = 0;i<frequency;i++){
+            var s = "def" , a = ['abc'];
+            for (let i = 0; i < 1; i ++) {
+                a.push(s);
+            }
+            var str = a.join("");
+            a = null;
+        }
+        // 结束计时
+        timeEnd = Date.now()
+        console.log('使用join()方法耗时：'+(timeEnd-timeBegin)+'ms')
+
+
+        /*******************************************************************/
+        // 4.使用模板字符串方法
+        // 开始计时
+        timeBegin = Date.now()
+        for(let i = 0;i<frequency;i++){
+            var s1 = 'abc';
+            var s2 = 'def';
+        }
+        // 结束计时
+        timeEnd = Date.now()
+        console.log('使用模板字符串方法耗时：'+(timeEnd-timeBegin)+'ms')
+
+
+        /*******************************************************************/
+        // 5.利用对象属性来连接字符串
+        function stringArray(){
+            this._str_ = new Array(); //创建一个函数类，里面的_str_接收一个数组实例
+            }
+            stringArray.prototype.append = function(a){
+                this._str_.push(a)  //在stringArray原型上添加append方法，用来对_str_属性添加内容
+            }
+            stringArray.prototype.toString = function(){
+                return this._str_.join('') //将_str_转为字符串
+        }
+        // 开始计时
+        timeBegin = Date.now()
+        for(let i = 0;i<frequency;i++){
+            var str = new stringArray()
+            str.append('abc')
+            str.append('def')
+        }
+        // 结束计时
+        timeEnd = Date.now()
+        console.log('使用对象属性来连接字符串耗时：'+(timeEnd-timeBegin)+'ms')
+    </script>
+</body>
+</html>

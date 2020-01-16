@@ -8,10 +8,12 @@
 </head>
 <body>
     <script>
+        
         /*******************************************************************/
         // 1.使用加号运算符
         // var s1 = "abc" , s2 = "def";
         // console.log(s1 + s2);  //返回字符串“abcdef”
+
 
 
         /*******************************************************************/
@@ -23,7 +25,7 @@
 
 
         /*******************************************************************/
-        // 使用join()方法
+        // 3.使用join()方法
         // var s = "def" , a = ['abc'];
         // for (var i = 0; i < 1; i ++) {
         //     a.push(s);
@@ -32,11 +34,29 @@
         // a = null;
         // console.log(str);
 
+
         /*******************************************************************/
-        // 使用模板字符串方法
+        // 4.使用模板字符串方法
         // var s1 = 'abc';
         // var s2 = 'def';
         // console.log(`${s1}${s2}`)
+
+
+        /*******************************************************************/
+        // 5.利用对象属性来连接字符串
+        // function stringArray(){
+        //     this._str_ = new Array(); //创建一个函数类，里面的_str_接收一个数组实例
+        // }
+        // stringArray.prototype.append = function(a){
+        //     this._str_.push(a)  //在stringArray原型上添加append方法，用来对_str_属性添加内容
+        // }
+        // stringArray.prototype.toString = function(){
+        //     return this._str_.join('') //将_str_转为字符串
+        // }
+        // var str = new stringArray()
+        // str.append('abc')
+        // str.append('def')
+        // console.log(str.toString())
     </script>
 </body>
 </html>
